@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bluetooth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, orientation=portrait">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.nucleo.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <style type="text/css">
+        @font-face {
+            font-family: RobotoBlack;
+            src: url(fonts/Roboto-Black.ttf);
+        }
+        @font-face {
+            font-family: RobotoLight;
+            src: url(fonts/Roboto-Light.ttf);
+        }
+        body{
+            font-family: RobotoLight;
+        }
+        .e_avatarconfig {
+            top: 210px;
+            background-size: cover;
+            left: 0;
+            right: 0;
+            top: 105px;
+            border: 6px solid white;
+            margin: 0 auto;
+            width: 110px;
+            height: 110px;
+            overflow: hidden;
+        }
+
+        .e_capaconfig {
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            height: 130px;
+            background: #555;
+        }
+
+        .enviar_titulo {
+            background-color: #eee;
+            color: #aaa;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        legend {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: inherit;
+            color: #ccc;
+            border: 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .e_painel {
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .panel {
+            box-sizing: border-box;
+        }
+
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        h5 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .btn_left {
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+
+        .btn_right {
+            float: right;
+            width: 50%;
+            text-align: center;
+        }
+
+        .e_modal {
+            margin-top: 20%;
+        }
+
+        .btn_center {
+            width: 100%;
+            text-align: center;
+            color: #ddd;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+
+        .btn_altDados {
+            margin-top: -10px;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background: #eee;
+            font-size: 10px;
+            margin: 0 auto;
+        }
+
+        #btn {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        input {
+            font-size: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 30px;
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+
+        .btn_telcel {
+            margin-top: 10px;
+            background: #ddd;
+            color: #aaa;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .centerBox {
+            text-align: center;
+        }
+
+        .sub_text {
+            color: #b3b3b3;
+            font-size: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .fixfixed .es_top,
+        .fixfixed .menuButtonde {
+            position: absolute;
+        }
+
+        .e_moldura {
+            display: inline-block;
+            margin-left: auto;
+            padding: 0.2em;
+        }
+
+        .car_perso {
+            padding: 5%;
+        }
+
+        .buttons_control {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5%;
+        }
+
+        button.pesquisar {
+            height: 20px;
+            margin: -10px 5px 0px;
+            width: 14%;
+            min-height: 30px;
+            text-align: center;
+        }
+
+        .modal-footer {
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .margiin {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .bloco_fun {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .bloco_fun {
+            margin: 12px 0px 8px;
+        }
+
+        .bloco_fun div {
+            width: 50%;
+        }
+
+        #btn_naceitar {
+            float: left;
+        }
+
+        #btn_aceitar {
+            float: left;
+        }
+
+        .btns {
+            padding: 10px;
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .dpy_none {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+
+        .btnImg2 {
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .btnImg2 img {
+            width: 100%;
+        }
+        strong{
+            font-family: RobotoBlack;
+        }
+        #sendWrite{
+            background-image: linear-gradient(#1f1cca,#9d00ff);
+            color: white;
+            border: unset;
+            width: 100%;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        .divPecas{
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="es_top" style="">
+        <img class="e_logoback" src="img/logo.svg" />
+    </div>
+    <div class="es_body">
+       <!--  <div class="enviar_titulo">
+            <p style="padding-top:10px; font-size:13px;">
+                <i class="fa fa-mobile"></i>
+                <strong id="tit">&nbsp;&nbsp;Bluetooth</strong>
+            </p>
+        </div> -->
+        <div class="alert mensagem" role="alert" style="font-size:14px;padding:1em;margin-top:6px;color:#646464;background-color:#EDEDEB;border-color:#BDBDBD; display:none;"></div>
+      <!--   <div class="e_painel">
+            <div class="bs-panel car_perso" style="text-align: justify;">
+                <h5>Aqui você poderá utilizar o bluetooth do seu celular para rastrear os dispositivos e conectar-se a eles, basta clicar no "iniciar".</h5>
+            </div>
+        </div> -->
+        <div class="e_painel">
+            <form>
+              <!--   <div class="bs-panel car_perso">
+                    <h5>Versão do Plugin de Bluetooth: 1.0.0</h5>
+                </div> -->
+                <div class="bs-panel car_perso" id="divDisp" style="display: none">
+                    <div class="bloco">
+                        <h5>Dispositivos:</h5>
+                        <div class="bs-panel mBottom bs-CTA">
+                            <ul id="bs-panel-disp">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-panel car_perso" id="divRead" style="display: none">
+                    <div class="bloco">
+                        <h4 style="text-align:center;margin-top:5px;margin-bottom:5px;">Informações da esteira</h4><br>
+                        <div class="divPecas">
+                            <strong>Peças Metálicas: </strong><span id="dispReadedMetal"></span>
+                        </div>
+                        <div class="divPecas">
+                            <strong>Total de Peças: </strong><span id="dispReaded"></span>
+                        </div>
+                        <div id="allResults"></div>
+                    </div>
+                </div>
+            </form>
+            <div class="bs-panel bs-CTA">
+                <ul>
+                    <li id="btnIniciar" class="btnBloco" style="">
+                        <div class="btnImg" style="background-image: linear-gradient(#1f1cca,#9d00ff);">
+                            <img src="img/restart.svg">
+                        </div>
+                        <div class="btnText">
+                            <strong>Iniciar</strong>
+                            <p>Ativar/Reiniciar Bluetooth</p>
+                        </div>
+                        <i class="fa fa-angle-right fa-2x"></i>
+                    </li>
+                  <!--   <li id="btnWrite" class="btnBloco" style="display: none">
+                        <div class="btnImg" style="background-image: linear-gradient(#1f1cca,#9d00ff);">
+                            <img src="img/comunicacao.svg">
+                        </div>
+                        <div class="btnText" style="width: 74%;">
+                            <strong>Ligar</strong>
+                            <select id="write">
+                                <option value="S">Sim</option>
+                                <option value="N">Não</option>
+                            </select>
+                            <p><button id="sendWrite">Enviar</button></p>
+                        </div>
+                    </li> -->
+                    <li id="btnRead" class="btnBloco" style="display: none">
+                        <div class="btnImg" style="background-image: linear-gradient(#1f1cca,#9d00ff);">
+                            <img src="img/analytics.svg">
+                        </div>
+                        <div class="btnText">
+                            <strong>Ler</strong>
+                            <p>Ativar a leitura de dados</p>
+                        </div>
+                        <i class="fa fa-angle-right fa-2x"></i>
+                    </li>
+                    <li id="btnParar" class="btnBloco" style="display: none">
+                        <div class="btnImg" style="background-image: linear-gradient(#1f1cca,#9d00ff);">
+                            <img src="img/stop.svg">
+                        </div>
+                        <div class="btnText">
+                            <strong>Parar</strong>
+                            <p>Parar Bluetooth</p>
+                        </div>
+                        <i class="fa fa-angle-right fa-2x"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        document.getElementById("btnIniciar").addEventListener("click", function(){
+            window.plugins.spinnerDialog.show('Aguarde','Buscando dispositivos...',true);
+            bluetoothSerial.discoverUnpaired(function(data){
+                if(data.length > 0){
+                    document.getElementById('divDisp').style.display = 'block';
+                    document.getElementById('bs-panel-disp').innerHTML = '';
+                    for(var i in data){
+                        if(data[i].name != undefined){
+                            var disp = '<li class="btnBloco btnDisp" data-addr="'+data[i].address+'">';
+                            disp +=    '  <div class="btnText">';
+                            disp +=    '   <strong>'+data[i].name+'</strong>';
+                            disp +=    '   <p>'+data[i].address+'</p>';
+                            disp +=    '  </div>';
+                            disp +=    '</li>';
+                            document.getElementById('bs-panel-disp').innerHTML += disp;
+                        }
+                    }
+                }
+                window.plugins.spinnerDialog.hide();
+            }, function(err){
+                alert("ERROR:" + err)
+            });
+        });
+        document.getElementById("btnRead").addEventListener("click", function(){
+            document.getElementById('divRead').style.display = 'block';
+            setInterval(function(){
+                bluetoothSerial.read(function (data) {
+                    if(data != ''){
+                        data = parseInt(data);
+                        if(data>1000){
+                            data -= 1000;
+                            var where = 'dispReadedMetal';
+                        }else
+                            var where = 'dispReaded';
+                        document.getElementById(where).innerHTML = data;
+                    }
+                }, function(err){
+                });
+            }, 1000);
+        });
+        // document.getElementById("sendWrite").addEventListener("click", function(){
+        //     var e = document.getElementById("write");
+        //     var strUser = e.options[e.selectedIndex].value;
+        //     bluetoothSerial.write(strUser, function(){
+        //         alert('enviado');
+        //     }, function(err){
+        //         alert(err);
+        //     });
+        // });
+        document.getElementById("btnParar").addEventListener("click", function(){
+            navigator.notification.confirm(
+                'Deseja realmente desconectar deste dispositivo?',  // message
+                function(btnIndex){
+                    if(btnIndex == 1){
+                        document.getElementById('dispReaded').innerHTML = '';
+                        document.getElementById('dispReadedMetal').innerHTML = '';
+                        bluetoothSerial.disconnect(function(){
+                            document.getElementById('btnParar').style.display = 'none';
+                            document.getElementById('btnIniciar').style.display = 'flex';
+                            document.getElementById('divDisp').style.display = 'none';
+                            document.getElementById('divRead').style.display = 'none';
+                            // document.getElementById('btnWrite').style.display = 'none';
+                            document.getElementById('btnRead').style.display = 'none';
+                        }, function(){
+                        });
+                    }
+                },          
+                'Atenção!',   
+                'Parar,Fechar' 
+            );
+        });
+        document.addEventListener("click", function(e){
+            if(e.target.className == 'btnBloco btnDisp'){
+                var macAddr = e.target.getAttribute('data-addr');
+                connect(macAddr);
+            }else if(e.target.parentNode.className == 'btnBloco btnDisp'){
+                var macAddr = e.target.parentNode.getAttribute('data-addr');
+                connect(macAddr);
+            }else if(e.target.parentNode.parentNode.className == 'btnBloco btnDisp'){
+                var macAddr = e.target.parentNode.parentNode.getAttribute('data-addr');
+                connect(macAddr);
+            }
+        });
+        function connect(macAddr){
+            bluetoothSerial.connect(macAddr, function(){
+                document.getElementById('divDisp').style.display = 'none';
+                document.getElementById('btnIniciar').style.display = 'none';
+                document.getElementById('btnParar').style.display = 'flex';
+                // document.getElementById('btnWrite').style.display = 'flex';
+                document.getElementById('btnRead').style.display = 'flex';
+            }, function(err){
+                alert("ERROR:" + err)
+            });
+        }
+        function onDeviceReady() {
+            cordova.plugins.diagnostic.setBluetoothState(function(){
+                console.log("Bluetooth was enabled");
+            }, function(error){
+                console.error("The following error occurred: "+error);
+            },
+            true);
+        }
+    </script>
+</body>
+
+</html>
